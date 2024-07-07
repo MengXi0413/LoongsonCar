@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask Button Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" /> 
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background-color: #FFFFFF;
+            width: 90%;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .grid-item {
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            width: 100%;
+            padding-bottom:100%; 
+            height: 0;
+            font-size: 0px;
+            text-align: start;
+        }
+        .grid-container-2 {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .b1{
+            /* width: 100px; */
+            padding-bottom:100%; 
+            padding-left:100%;
+            height: 0;
+            background: url("../static/jiantou_f_l.png") no-repeat;
+            background-size: 100% 100%;
+            border-style: none;
+        }
+        .b2{
+            /* width: 100px; */
+            padding-bottom:100%; 
+            padding-left:100%;
+            height: 0;
+            background: url("../static/jiantou_f.png") no-repeat;
+            background-size: 100% 100%;
+            border-style: none;
+        }
+        .b3{
+            /* width: 100px; */
+            padding-bottom:100%; 
+            padding-left:100%;
+            height: 0;
+            background: url("../static/jiantou_f_r.png") no-repeat;
+            background-size: 100% 100%;
+            border-style: none;
+        }
+        .b4{
+            /* width: 100px; */
+            padding-bottom:100%; 
+            padding-left:100%;
+            height: 0;
+            background: url("../static/jiantou_l.png") no-repeat;
+            background-size: 100% 100%;
+            border-style: none;
+        }
+        .b5{
+            /* width: 100px; */
+            padding-bottom:100%; 
+            padding-left:100%;
+            height: 0;
+            background: url("../static/knob.png") no-repeat;
+            background-size: 100% 100%;
+            border-style: none;
+        }
+        .b6{
+            /* width: 100px; */
+            padding-bottom:100%; 
+            padding-left:100%;
+            height: 0;
+            background: url("../static/jiantou_r.png") no-repeat;
+            background-size: 100% 100%;
+            border-style: none;
+        }
+        .b7{
+            /* width: 100px; */
+            padding-bottom:100%; 
+            padding-left:100%;
+            height: 0;
+            background: url("../static/jiantou_b_l.png") no-repeat;
+            background-size: 100% 100%;
+            border-style: none;
+        }
+        .b8{
+            /* width: 100px; */
+            padding-bottom:100%; 
+            padding-left:100%;
+            height: 0;
+            background: url("../static/jiantou_b.png") no-repeat;
+            background-size: 100% 100%;
+            border-style: none;
+        }
+        .b9{
+            /* width: 100px; */
+            padding-left:100%; 
+            padding-bottom:100%; 
+            height: 0;
+            background: url("../static/jiantou_b_r.png") no-repeat;
+            background-size: 100% 100%;
+            border-style: none;
+        }
+        .b10 {
+            width: 20vw;
+            height: 10vw;
+        }
+        .camimg{
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto; 
+        }
+        </style>
+</head>
+<body>
+    <!-- <img class="camimg" id="refreshImage" src="http://192.168.43.220/cam-hi.jpg">
+    <script>
+        const imageElement = document.getElementById('refreshImage');
+        function refreshImage() {
+            imageElement.src = imageElement.src + '?' + new Date().getTime();
+        }
+        setInterval(refreshImage, 100);
+    </script> -->
+    <!-- <canvas id='test_canvas' width='1202px' height='901px' style='border:1px solid #d3d3d3'>
+    </canvas>
+    <script language="JavaScript">
+        var ctx = document.getElementById('test_canvas').getContext('2d');
+        var img = new Image();
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0);
+            };
+        var theDate = new Date();
+        img.src = "http://192.168.43.220/cam.mjpeg";
+        window.setInterval("refreshCanvas()", 10);
+        function refreshCanvas(){
+        ctx.drawImage(img, 0, 0);
+        };
+</script> <br> -->
+    <div class="grid-container">
+        <div class="grid-item">
+            <button class="b1" id="f_l_button">
+            </button>
+        </div>
+        <div class="grid-item">
+            <button class="b2" id="f_button">
+            </button>
+        </div>
+        <div class="grid-item">
+            <button class="b3" id="f_r_button">
+            </button>
+        </div>  
+        <div class="grid-item">
+            <button class="b4" id="l_button">
+            </button>
+        </div>
+        <div class="grid-item">
+            <button class="b5" id="center_button">
+            </button>
+        </div>
+        <div class="grid-item">
+            <button class="b6" id="r_button">
+            </button>
+        </div>  
+        <div class="grid-item">
+            <button class="b7" id="b_l_button">
+            </button>
+        </div>
+        <div class="grid-item">
+            <button class="b8" id="b_button">
+            </button>
+        </div>
+        <div class="grid-item">
+            <button class="b9" id="b_r_button">
+            </button>
+        </div>  
+    </div>
+    <p></p>
+      <div class="grid-container-2">
+            <div class="grid-item-2">
+                <button class="b10" id="turndirbutton">
+                    顺/逆时针
+                </button>
+            </div>
+            <div class="grid-item-2">
+                <button class="b10" id="isaibutton">
+                    自动
+                </button>
+            </div>
+            <div class="grid-item-2">
+                <button class="b10" id="pickbutton">
+                    捡球
+                </button>
+            </div>
+            <div class="grid-item-2">
+                <button class="b10" id="returnbutton">
+                    还球
+                </button>
+            </div>
+      </div>
+    <script>
+        var button_fl = document.getElementById('f_l_button');
+        var button_f = document.getElementById('f_button');
+        var button_fr = document.getElementById('f_r_button');
+        var button_l = document.getElementById('l_button');
+        var button_c = document.getElementById('center_button');
+        var button_r = document.getElementById('r_button');
+        var button_bl = document.getElementById('b_l_button');
+        var button_b = document.getElementById('b_button');
+        var button_br = document.getElementById('b_r_button');
+
+        var button_turn = document.getElementById('turndirbutton');
+        var button_ai = document.getElementById('isaibutton');
+        var button_pick = document.getElementById('pickbutton');
+        var button_return = document.getElementById('returnbutton');
+
+        const json_fl = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                            },
+                    body: JSON.stringify({ type: "fl" }),
+                };
+        const json_f = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                            },
+                    body: JSON.stringify({ type: "f" }),
+                };
+        const json_fr = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                            },
+                    body: JSON.stringify({ type: "fr" }),
+                };
+        const json_l = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                            },
+                    body: JSON.stringify({ type: "l" }),
+                };
+        const json_c = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                            },
+                    body: JSON.stringify({ type: "c" }),
+                };
+        const json_r = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                            },
+                    body: JSON.stringify({ type: "r" }),
+                };
+        const json_bl = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                            },
+                    body: JSON.stringify({ type: "bl" }),
+                };
+        const json_b = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                            },
+                    body: JSON.stringify({ type: "b" }),
+                };
+        const json_br = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                            },
+                    body: JSON.stringify({ type: "br" }),
+                };
+
+        button_fl.addEventListener('touchstart', function() {
+            // alert("ok")
+            fetch('/onmousedown', json_fl)
+        });
+        button_fl.addEventListener('touchend', function() {
+            fetch('/onmouseup', json_fl)
+        });
+
+        button_f.addEventListener('touchstart', function() {
+            fetch('/onmousedown', json_f)
+        });
+        button_f.addEventListener('touchend', function() {
+            fetch('/onmouseup', json_f)
+        });
+
+        button_fr.addEventListener('touchstart', function() {
+            fetch('/onmousedown', json_fr)
+        });
+        button_fr.addEventListener('touchend', function() {
+            fetch('/onmouseup', json_fr)
+        });
+
+        button_l.addEventListener('touchstart', function() {
+            fetch('/onmousedown', json_l)
+        });
+        button_l.addEventListener('touchend', function() {
+            fetch('/onmouseup', json_l)
+        });
+
+        button_c.addEventListener('touchstart', function() {
+            fetch('/onmousedown', json_c)
+        });
+        button_c.addEventListener('touchend', function() {
+            fetch('/onmouseup', json_c)
+        });
+
+        button_r.addEventListener('touchstart', function() {
+            fetch('/onmousedown', json_r)
+        });
+        button_r.addEventListener('touchend', function() {
+            fetch('/onmouseup', json_r)
+        });
+
+        button_bl.addEventListener('touchstart', function() {
+            fetch('/onmousedown', json_bl)
+        });
+        button_bl.addEventListener('touchend', function() {
+            fetch('/onmouseup', json_bl)
+        });
+
+        button_b.addEventListener('touchstart', function() {
+            fetch('/onmousedown', json_b)
+        });
+        button_b.addEventListener('touchend', function() {
+            fetch('/onmouseup', json_b)
+        });
+
+        button_br.addEventListener('touchstart', function() {
+            fetch('/onmousedown', json_br)
+        });
+        button_br.addEventListener('touchend', function() {
+            fetch('/onmouseup', json_br)
+        });
+
+        button_turn.addEventListener('click', function() {
+            fetch('/changeTurnDire',  {method: "POST"})
+        });
+        button_ai.addEventListener('click', function() {
+            fetch('/aiMode', {method: "POST"})
+        });
+
+        button_pick.addEventListener('click', function() {
+            fetch('/pickBall', {method: "POST"})
+        });
+        button_return.addEventListener('click', function() {
+            fetch('/returnBall', {method: "POST"})
+        });
+    </script>
+</body>
+</html>
