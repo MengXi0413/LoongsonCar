@@ -4,6 +4,13 @@
     <title>Flask Button Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" /> 
     <style>
+        /* .video {
+            margin: 0 auto;
+        } */
+        .videodiv{
+            display: flex;
+            justify-content: space-around;
+        }
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -146,6 +153,7 @@
         ctx.drawImage(img, 0, 0);
         };
 </script> <br> -->
+    <div class="videodiv"><img class="video" src="{{ url_for('video_feed') }}"></div>
     <div class="grid-container">
         <div class="grid-item">
             <button class="b1" id="f_l_button">
@@ -207,6 +215,50 @@
                 </button>
             </div>
       </div>
+      <div class="grid-container-2">
+        <div class="grid-item-2">
+            <button class="b10" id="redbutton">
+                 红色
+            </button>
+        </div>
+        <div class="grid-item-2">
+            <button class="b10" id="purplebutton">
+                紫色
+            </button>
+        </div>
+        <div class="grid-item-2">
+            <button class="b10" id="bluebutton">
+                蓝色
+            </button>
+        </div>
+        <div class="grid-item-2">
+            <button class="b10" id="yellowbutton">
+                黄色
+            </button>
+        </div>
+    </div>
+        <div class="grid-container-2">
+            <div class="grid-item-2">
+                <button class="b10" id="colorbutton">
+                    色块还球
+                </button>
+            </div>
+            <div class="grid-item-2">
+                <button class="b10" id="numberbutton">
+                    数字还球
+                </button>
+            </div>
+            <div class="grid-item-2">
+                <button class="b10" id="brackbutton">
+                    急停
+                </button>
+            </div>
+            <div class="grid-item-2">
+                <button class="b10" id="overbutton">
+                    结束运行
+                </button>
+            </div>
+        </div>
     <script>
         var button_fl = document.getElementById('f_l_button');
         var button_f = document.getElementById('f_button');
@@ -217,6 +269,16 @@
         var button_bl = document.getElementById('b_l_button');
         var button_b = document.getElementById('b_button');
         var button_br = document.getElementById('b_r_button');
+
+        var button_red = document.getElementById('redbutton');
+        var button_purple = document.getElementById('purplebutton');
+        var button_blue = document.getElementById('bluebutton');
+        var button_yellow = document.getElementById('yellowbutton');
+
+        var button_color = document.getElementById('colorbutton');
+        var button_number = document.getElementById('numberbutton');
+        var button_brack = document.getElementById('brackbutton');
+        var button_over = document.getElementById('overbutton');
 
         var button_turn = document.getElementById('turndirbutton');
         var button_ai = document.getElementById('isaibutton');
@@ -363,6 +425,34 @@
         });
         button_return.addEventListener('click', function() {
             fetch('/returnBall', {method: "POST"})
+        });
+
+        button_red.addEventListener('click', function() {
+            fetch('/red',  {method: "POST"})
+        });
+        button_purple.addEventListener('click', function() {
+            fetch('/purple', {method: "POST"})
+        });
+
+        button_blue.addEventListener('click', function() {
+            fetch('/blue', {method: "POST"})
+        });
+        button_yellow.addEventListener('click', function() {
+            fetch('/yellow', {method: "POST"})
+        });
+
+        button_color.addEventListener('click', function() {
+            fetch('/color',  {method: "POST"})
+        });
+        button_number.addEventListener('click', function() {
+            fetch('/number', {method: "POST"})
+        });
+
+        button_brack.addEventListener('click', function() {
+            fetch('/brack', {method: "POST"})
+        });
+        button_over.addEventListener('click', function() {
+            fetch('/over', {method: "POST"})
         });
     </script>
 </body>
